@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./views/Home";
-import SingUp from "./views/SingUp";
+import SignUp from "./views/SignUp";
 import NotFound from "./views/NotFound";
+import SignIn from "./views/SignIn";
+import MainLayout from "./views/MainLayout";
 
 const App = () => {
     const [events, setEvents] = useState(null);
@@ -10,17 +12,17 @@ const App = () => {
     useEffect(() => {
         fetch("http://localhost:3001/api/events")
             .then((res) => res.json())
-            .then((data) => console.log(data));
+            .then((data) => setEvents(data));
     }, []);
 
     return (
         <>
-            <h1 className="text-3xl font-bold underline text-red-500">App</h1>
             <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/signup" element={<SingUp />} />
-                {/* Show the list of the events */}
-                {/* Show detail of each event => use Dynamic routs (route/:id => useParams) */}
+                <Route path="/" element={<MainLayout />}>
+                    <Route index element={<Home />} />
+                    <Route path="signin" element={<SignIn />} />
+                    <Route path="signup" element={<SignUp />} />
+                </Route>
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </>
@@ -28,3 +30,10 @@ const App = () => {
 };
 
 export default App;
+
+{
+    /* Show the list of the events */
+}
+{
+    /* Show detail of each event => use Dynamic routs (route/:id => useParams) */
+}
