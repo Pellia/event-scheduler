@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Events = () => {
     const [events, setEvents] = useState(null);
@@ -11,6 +12,7 @@ const Events = () => {
                 setEvents(data.results);
             });
     }, []);
+
     return (
         <div>
             {events &&
@@ -19,6 +21,7 @@ const Events = () => {
                         <div className="border" key={index}>
                             <div>{item.title}</div>
                             <div>{item.description}</div>
+                            <Link to={`events/${index + 1}`}>Details</Link>
                         </div>
                     );
                 })}

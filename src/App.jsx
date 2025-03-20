@@ -5,6 +5,7 @@ import SignUp from "./views/SignUp";
 import NotFound from "./views/NotFound";
 import SignIn from "./views/SignIn";
 import MainLayout from "./views/MainLayout";
+import EventDetails from "./components/EventDetails";
 
 const App = () => {
     return (
@@ -12,6 +13,7 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<MainLayout />}>
                     <Route index element={<Home />} />
+                    <Route path="events/:id" element={<EventDetails />} />
                     <Route path="signin" element={<SignIn />} />
                     <Route path="signup" element={<SignUp />} />
                 </Route>
@@ -22,10 +24,3 @@ const App = () => {
 };
 
 export default App;
-
-{
-    /* Show the list of the events */
-}
-{
-    /* Show detail of each event => use Dynamic routs (route/:id => useParams) */
-}
