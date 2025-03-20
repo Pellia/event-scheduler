@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./views/Home";
 import SingUp from "./views/SingUp";
+import NotFound from "./views/NotFound";
 
 const App = () => {
     const [events, setEvents] = useState(null);
@@ -20,6 +21,7 @@ const App = () => {
                 <Route path="/signup" element={<SingUp />} />
                 {/* Show the list of the events */}
                 {/* Show detail of each event => use Dynamic routs (route/:id => useParams) */}
+                <Route path="*" element={<NotFound />} />
             </Routes>
         </>
     );
