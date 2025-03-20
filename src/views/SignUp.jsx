@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SingUp = () => {
-    const [inputValue, setInputValue] = useState(null || { email: "", password: "" });
+    const [createValue, setCreateValue] = useState(null || { email: "", password: "" });
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
-        setInputValue((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+        setCreateValue((prev) => ({ ...prev, [e.target.name]: e.target.value }));
         // console.log(inputValue);
     };
 
@@ -23,12 +25,15 @@ const SingUp = () => {
                 "Content-Type": "application/JSON",
             },
             body: JSON.stringify({
-                email: inputValue["email"],
-                password: inputValue["password"],
+                email: createValue["email"],
+                password: createValue["password"],
             }),
         })
             .then((res) => res.json())
             .then((data) => console.log(data));
+
+        // <Navigate to="/signin" />;
+        navigate("../signin");
     };
 
     return (
