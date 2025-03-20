@@ -14,7 +14,7 @@ const App = () => {
 
     return (
         <>
-            <h1>App</h1>
+            <h1 className="text-3xl font-bold underline text-red-500">App</h1>
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/signup" element={<SingUp />} />
