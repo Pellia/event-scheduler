@@ -7,14 +7,6 @@ import SignIn from "./views/SignIn";
 import MainLayout from "./views/MainLayout";
 
 const App = () => {
-    const [events, setEvents] = useState(null);
-
-    useEffect(() => {
-        fetch("http://localhost:3001/api/events")
-            .then((res) => res.json())
-            .then((data) => setEvents(data));
-    }, []);
-
     return (
         <>
             <Routes>
