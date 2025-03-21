@@ -1,11 +1,36 @@
-const SignIn = () => {
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+const SignIn = ({ setAuth }) => {
+    const [inputValue, setInputValue] = useState(null || { email: "", password: "" });
+    const navigate = useNavigate();
+
     const handleChange = (e) => {
-        setCreateValue((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+        setInputValue((prev) => ({ ...prev, [e.target.name]: e.target.value }));
         // console.log(inputValue);
     };
 
     const handleSubmit = (e) => {
-        console.log(e);
+        e.preventDefault();
+
+        fetch("http://localhost:3001/api/auth/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/JSON",
+            },
+            body: JSON.stringify({
+                email: inputValue["email"],
+                password: inputValue["password"],
+            }),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                // console.log(data.token);
+                localStorage.setItem("entries", JSON.stringify(data.token));
+                setAuth(data.token);
+            });
+
+        navigate("../");
     };
     return (
         <div>

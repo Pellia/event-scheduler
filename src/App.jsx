@@ -8,13 +8,16 @@ import MainLayout from "./views/MainLayout";
 import EventDetails from "./components/EventDetails";
 
 const App = () => {
+    const [auth, setAuth] = useState(JSON.parse(localStorage.getItem("token")) || null);
+
+    console.log(auth);
     return (
         <>
             <Routes>
-                <Route path="/" element={<MainLayout />}>
+                <Route path="/" element={<MainLayout auth={auth} />}>
                     <Route index element={<Home />} />
                     <Route path="events/:id" element={<EventDetails />} />
-                    <Route path="signin" element={<SignIn />} />
+                    <Route path="signin" element={<SignIn setAuth={setAuth} />} />
                     <Route path="signup" element={<SignUp />} />
                 </Route>
                 <Route path="*" element={<NotFound />} />

@@ -8,7 +8,7 @@ const Events = () => {
         fetch("http://localhost:3001/api/events")
             .then((res) => res.json())
             .then((data) => {
-                console.log(data.results);
+                // console.log(data.results);
                 setEvents(data.results);
             });
     }, []);

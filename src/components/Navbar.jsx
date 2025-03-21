@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ auth }) => {
+    // if (auth) {
+    //     console.log("yea");
+    // } else {
+    //     console.log("nope");
+    // }
+
     return (
         <nav className="bg-gray-800 p-4">
             <div className="container mx-auto flex justify-between items-center">
@@ -11,12 +17,44 @@ const Navbar = () => {
                     <Link to="/" className="text-gray-300 hover:text-white">
                         Home
                     </Link>
-                    <Link to="/signin" className="text-gray-300 hover:text-white">
-                        Sign In
-                    </Link>
-                    <Link to="/signup" className="text-gray-300 hover:text-white">
-                        Sign Up
-                    </Link>
+                    {/* {(auth && (
+                        <>
+                            <Link to="/signup" className="text-gray-300 hover:text-white">
+                                Create a new Event
+                            </Link>
+                            <Link to="/signup" className="text-gray-300 hover:text-white">
+                                Sign Out
+                            </Link>
+                        </>
+                    )) || (
+                        <>
+                            <Link to="/signin" className="text-gray-300 hover:text-white">
+                                Sign In
+                            </Link>
+                            <Link to="/signup" className="text-gray-300 hover:text-white">
+                                Sign Up
+                            </Link>
+                        </>
+                    )} */}
+                    {auth ? (
+                        <>
+                            <Link to="/signup" className="text-gray-300 hover:text-white">
+                                Create a new Event
+                            </Link>
+                            <Link to="/signup" className="text-gray-300 hover:text-white">
+                                Sign Out
+                            </Link>
+                        </>
+                    ) : (
+                        <>
+                            <Link to="/signin" className="text-gray-300 hover:text-white">
+                                Sign In
+                            </Link>
+                            <Link to="/signup" className="text-gray-300 hover:text-white">
+                                Sign Up
+                            </Link>
+                        </>
+                    )}
                 </div>
             </div>
         </nav>
