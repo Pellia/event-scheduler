@@ -26,7 +26,7 @@ const SignIn = ({ setAuth }) => {
             .then((res) => res.json())
             .then((data) => {
                 // console.log(data.token);
-                localStorage.setItem("entries", JSON.stringify(data.token));
+                localStorage.setItem("token", JSON.stringify(data.token));
                 setAuth(data.token);
             });
 
