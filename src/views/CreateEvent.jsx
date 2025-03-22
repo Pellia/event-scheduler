@@ -14,11 +14,11 @@ const CreateEvent = ({ auth }) => {
         console.log(createValue);
     };
 
-    useEffect(() => {
-        if (!auth) {
-            navigate("../");
-        }
-    }, []);
+    // useEffect(() => {
+    //     if (!auth) {
+    //         navigate("../");
+    //     }
+    // }, []);
 
     const handleCreateEvent = (e) => {
         e.preventDefault();
