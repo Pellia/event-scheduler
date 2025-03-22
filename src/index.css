@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@layer base {
+    body {
+        @apply bg-linear-to-b from-yellow-50 via-pink-50 to-violet-50 min-h-screen;
+    }
+}
+
 .leaflet-container {
     width: 500px;
     height: 500px;
