@@ -6,7 +6,7 @@ const MapShow = ({ position }) => {
     // console.log(position[0]);
     return (
         <div>
-            <MapContainer center={[position[0], position[1]]} zoom={10} scrollWheelZoom={true}>
+            <MapContainer center={[32, 49]} zoom={10} scrollWheelZoom={true}>
                 <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
                 <Marker position={position}>
                     <Popup>{`Latitude: ${position[0]} | Longitude: ${position[1]}`}</Popup>
