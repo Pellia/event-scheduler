@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Map from "../components/Map";
 
 const CreateEvent = ({ auth }) => {
-    const [createValue, setCreateValue] = useState(null || { title: "", description: "", date: "", location: "", latitude: 0, longitude: 0 });
+    const [createValue, setCreateValue] = useState(null || { title: "", description: "", date: "", location: "", latitude: 53.55, longitude: 9.99 });
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -35,8 +35,9 @@ const CreateEvent = ({ auth }) => {
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
+                console.log(data["id"]);
+                navigate(`../events/${data["id"]}`);
             });
-        navigate("../");
     };
     return (
         <div className="p-4">

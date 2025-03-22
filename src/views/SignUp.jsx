@@ -31,7 +31,7 @@ const SingUp = () => {
     return (
         <div className="p-4">
             <div className="container mx-auto bg-white p-8 flex gap-2 flex-col mt-10 border border-neutral-200 rounded-lg">
-                <h1 className="text-neutral-800 font-bold text-2xl text-center">Register for free</h1>
+                <h2 className="text-neutral-800 font-bold text-2xl text-center">Register for free</h2>
                 <form onSubmit={handleCreateUser} className=" flex flex-col mx-12 gap-4">
                     <div className="flex flex-col gap-2">
                         <label className="font-bold text-lg" htmlFor="email">
