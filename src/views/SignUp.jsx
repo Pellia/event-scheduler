@@ -1,3 +1,4 @@
+// Hooks
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -7,18 +8,11 @@ const SingUp = () => {
 
     const handleChange = (e) => {
         setCreateValue((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-        // console.log(inputValue);
     };
 
     const handleCreateUser = (e) => {
         e.preventDefault();
-        // console.log(inputValue["email"]);
-        // console.log(inputValue["password"]);
-        // console.log(e.target[0].value);
-        // console.log(e.target[1].value);
 
-        // const email = e.target[0].value;
-        // const password = e.target[0].value;
         fetch("http://localhost:3001/api/users", {
             method: "POST",
             headers: {
@@ -31,21 +25,46 @@ const SingUp = () => {
         })
             .then((res) => res.json())
             .then((data) => console.log(data));
-
-        // <Navigate to="/signin" />;
         navigate("../signin");
     };
 
     return (
-        <div>
-            <h1>Sign Up</h1>
-            <form onSubmit={handleCreateUser}>
-                <label htmlFor="email">Email</label>
-                <input onChange={handleChange} className="border" type="email" name="email" id="email" required />
-                <label htmlFor="password">Password</label>
-                <input onChange={handleChange} className="border" type="password" name="password" id="password" required />
-                <button className="bg-blue-200 p-2">Submit Create User</button>
-            </form>
+        <div className="p-4">
+            <div className="container mx-auto bg-white p-8 flex gap-2 flex-col mt-10 border border-neutral-200 rounded-lg">
+                <h1 className="text-neutral-800 font-bold text-2xl text-center">Register for free</h1>
+
+                <form onSubmit={handleCreateUser} className=" flex flex-col mx-12 gap-4">
+                    <div className="flex flex-col gap-2">
+                        <label className="font-bold text-lg" htmlFor="email">
+                            Email
+                        </label>
+                        <input
+                            onChange={handleChange}
+                            className="border border-neutral-400 rounded-xl h-10 text-lg px-2"
+                            type="email"
+                            name="email"
+                            id="email"
+                            placeholder="Enter your Email..."
+                            required
+                        />
+                    </div>
+                    <div className="flex flex-col gap-2">
+                        <label className="font-bold text-lg" htmlFor="password">
+                            Password
+                        </label>
+                        <input
+                            onChange={handleChange}
+                            className="border border-neutral-400 rounded-xl h-10 text-lg px-2"
+                            type="password"
+                            name="password"
+                            id="password"
+                            placeholder="Enter your password..."
+                            required
+                        />
+                    </div>
+                    <button className="bg-pink-200 p-2 rounded-md mt-4 hover:bg-violet-200 text-neutral-800 font-bold text-lg cursor-pointer">Register</button>
+                </form>
+            </div>
         </div>
     );
 };
