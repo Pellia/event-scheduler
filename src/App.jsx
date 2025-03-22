@@ -6,6 +6,7 @@ import NotFound from "./views/NotFound";
 import SignIn from "./views/SignIn";
 import MainLayout from "./views/MainLayout";
 import EventDetails from "./components/EventDetails";
+import CreateEvent from "./views/CreateEvent";
 
 const App = () => {
     const [auth, setAuth] = useState(null);
@@ -20,6 +21,7 @@ const App = () => {
                 <Route path="/" element={<MainLayout auth={auth} setAuth={setAuth} />}>
                     <Route index element={<Home />} />
                     <Route path="events/:id" element={<EventDetails />} />
+                    <Route path="createevent" element={<CreateEvent auth={auth} />} />
                     <Route path="signin" element={<SignIn setAuth={setAuth} />} />
                     <Route path="signup" element={<SignUp />} />
                 </Route>

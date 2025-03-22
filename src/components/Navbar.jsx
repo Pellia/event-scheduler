@@ -14,7 +14,7 @@ const Navbar = ({ auth, setAuth }) => {
                     </Link>
                     {auth ? (
                         <>
-                            <Link to="/signup" className="text-gray-300 hover:text-white">
+                            <Link to="/createevent" className="text-gray-300 hover:text-white">
                                 Create a new Event
                             </Link>
                             <SignOut setAuth={setAuth} />

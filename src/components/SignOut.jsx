@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 const SignOut = ({ setAuth }) => {
     const handleClick = () => {
+        localStorage.removeItem("token");
         setAuth(null);
     };
 
