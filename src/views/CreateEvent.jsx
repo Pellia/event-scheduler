@@ -1,5 +1,5 @@
 // Hooks
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // Components
@@ -13,6 +13,12 @@ const CreateEvent = ({ auth }) => {
         setCreateValue((prev) => ({ ...prev, [e.target.name]: e.target.value }));
         console.log(createValue);
     };
+
+    useEffect(() => {
+        if (!auth) {
+            navigate("../");
+        }
+    }, []);
 
     const handleCreateEvent = (e) => {
         e.preventDefault();
