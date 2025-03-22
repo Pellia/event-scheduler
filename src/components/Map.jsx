@@ -1,19 +1,24 @@
+// Hooks
 import { useState } from "react";
-import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvent } from "react-leaflet";
+
+// React Leaflet
+import { MapContainer, TileLayer, Marker, Popup, useMapEvent } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
 const Map = ({ setCreateValue }) => {
-    const [position, setPosition] = useState([53, 10]);
+    const [position, setPosition] = useState([53.55, 9.99]);
+
     function MarkPoint() {
         const map = useMapEvent("click", (e) => {
-            console.log(e.latlng);
+            // console.log(e.latlng);
             setPosition([e.latlng["lat"], e.latlng["lng"]]);
             setCreateValue((prev) => ({ ...prev, ["latitude"]: e.latlng["lat"] }));
             setCreateValue((prev) => ({ ...prev, ["longitude"]: e.latlng["lng"] }));
         });
+
         return (
             <Marker position={position}>
-                <Popup>{position}</Popup>
+                <Popup>{`Latitude: ${position[0]} | Longitude: ${position[1]}`}</Popup>
             </Marker>
         );
     }

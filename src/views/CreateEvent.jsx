@@ -27,7 +27,7 @@ const CreateEvent = ({ auth }) => {
                 title: createValue["title"],
                 description: createValue["description"],
                 date: createValue["date"],
-                location: "Hamburg",
+                location: createValue["location"],
                 latitude: createValue["latitude"],
                 longitude: createValue["longitude"],
             }),
