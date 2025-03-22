@@ -10,7 +10,6 @@ const Map = ({ setCreateValue }) => {
 
     function MarkPoint() {
         const map = useMapEvent("click", (e) => {
-            // console.log(e.latlng);
             setPosition([e.latlng["lat"], e.latlng["lng"]]);
             setCreateValue((prev) => ({ ...prev, ["latitude"]: e.latlng["lat"] }));
             setCreateValue((prev) => ({ ...prev, ["longitude"]: e.latlng["lng"] }));

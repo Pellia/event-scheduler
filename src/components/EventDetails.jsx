@@ -1,5 +1,8 @@
+// Hooks
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+
+// Components
 import MapShow from "./MapShow";
 
 const EventDetails = () => {
@@ -29,11 +32,13 @@ const EventDetails = () => {
                         <p>{eventDetail.description}</p>
                         <hr className="border-neutral-400 border-dashed" />
                         <div className="flex justify-between items-center">
-                            <p>{eventDetail.location}</p>
+                            <p>Location: {eventDetail.location}</p>
                         </div>
                     </div>
                 )}
-                <MapShow position={position} />
+                <div className="border-2 border-pink-200">
+                    <MapShow position={position} />
+                </div>
             </div>
         </div>
     );
