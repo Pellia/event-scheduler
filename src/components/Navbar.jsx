@@ -26,7 +26,7 @@ const Navbar = ({ auth, setAuth }) => {
                         </>
                     ) : (
                         <>
-                            <Link to="/signin" className="border-2 border-gray-200 py-2 px-4 rounded-lg font-bold text-md text-center hover:border-yellow-100 hover:text-yellow-100">
+                            <Link to="/signin" className="border-2 border-gray-200 py-2 px-4 rounded-lg font-bold text-md text-center hover:border-pink-100 hover:text-pink-100">
                                 Sign In
                             </Link>
                             <Link
