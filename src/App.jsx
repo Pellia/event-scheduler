@@ -1,12 +1,17 @@
+// Hooks
 import React, { useEffect, useState } from "react";
+
+// React Router
 import { Route, Routes } from "react-router-dom";
+
+// Components
 import Home from "./views/Home";
 import SignUp from "./views/SignUp";
-import NotFound from "./views/NotFound";
 import SignIn from "./views/SignIn";
 import MainLayout from "./views/MainLayout";
 import EventDetails from "./components/EventDetails";
 import CreateEvent from "./views/CreateEvent";
+import NotFound from "./views/NotFound";
 
 const App = () => {
     const [auth, setAuth] = useState(null);
@@ -14,7 +19,7 @@ const App = () => {
     useEffect(() => {
         setAuth(JSON.parse(localStorage.getItem("token")));
     }, []);
-    // console.log(auth);
+
     return (
         <>
             <Routes>
