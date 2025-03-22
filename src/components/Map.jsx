@@ -1,6 +1,6 @@
+import { useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvent } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { useState } from "react";
 
 const Map = ({ setCreateValue }) => {
     const [position, setPosition] = useState([53, 10]);
@@ -13,9 +13,7 @@ const Map = ({ setCreateValue }) => {
         });
         return (
             <Marker position={position}>
-                <Popup>
-                    A pretty CSS3 popup. <br /> Easily customizable.
-                </Popup>
+                <Popup>{position}</Popup>
             </Marker>
         );
     }

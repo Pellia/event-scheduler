@@ -1,10 +1,14 @@
 // React Router
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const SignOut = ({ setAuth }) => {
+    const navigate = useNavigate();
+
     const handleClick = () => {
         localStorage.removeItem("token");
         setAuth(null);
+        navigate("../");
     };
 
     return (
